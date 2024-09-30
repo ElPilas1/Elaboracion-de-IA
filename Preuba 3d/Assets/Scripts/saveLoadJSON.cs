@@ -7,6 +7,7 @@ using UnityEngine;
 struct PlayerData
 {
     public Vector3 position;//un objeto que es capaz de covnertirse en un archivo y ademas el contrario tambien se denomina objeto seriarizable
+    public int score;
 }
 public class saveLoadJSON : MonoBehaviour
 {
@@ -40,9 +41,9 @@ public class saveLoadJSON : MonoBehaviour
     
         PlayerData playerData = new PlayerData();
         playerData.position=transform.position;
+        playerData.score = GameManager.instance.GetScore();
         string json=JsonUtility.ToJson(playerData);
         streamWriter.WriteLine(json);
-
 
       streamWriter.Close();
     }
@@ -62,6 +63,7 @@ public class saveLoadJSON : MonoBehaviour
             streamReader.Close();
             
             transform.position = data.position;
+            GameManager.instance.SetScore(data.score);
             }
 
             catch(System.Exception e)

@@ -19,10 +19,10 @@ public class PlayerMovementCC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((characterController.isGrounded))
-        {
-            yVelocity = 0;//REINICIA SU GRAVEDAD A 0 SI ESTA EN EL SUELO   
-        }
+        //if ((characterController.isGrounded))
+        //{
+        //    yVelocity = 0;//REINICIA SU GRAVEDAD A 0 SI ESTA EN EL SUELO   
+        //}
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         float mouseX = Input.GetAxis("Mouse X");
@@ -44,7 +44,9 @@ public class PlayerMovementCC : MonoBehaviour
     void Movement(float x, float z)
     {
         Vector3 movementVector=transform.forward * speed * z + transform.right * speed * x;
-        yVelocity -= gravityScale;
+        if (!characterController.isGrounded)
+            yVelocity -= gravityScale;
+
         movementVector.y = yVelocity;
         
         movementVector *= Time.deltaTime;//se tiene que mover igual en el pc de mi abuela que en la nasa
@@ -54,6 +56,7 @@ public class PlayerMovementCC : MonoBehaviour
     {
         if(jumpPressed && characterController.isGrounded)
         {
+            yVelocity = 0;
             yVelocity += jumpforce; //Mathf.Sqrt(jumpforce * 3 * gravityScale);
 
         }
