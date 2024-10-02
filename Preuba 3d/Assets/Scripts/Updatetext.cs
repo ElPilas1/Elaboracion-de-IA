@@ -7,28 +7,56 @@ public class Updatetext : MonoBehaviour
 {
     public class UpdateText : MonoBehaviour
     {
-        public GameManager.GameManagerVariables variable; //actualiza el texto a la variable de GameManager que le indiquemos.
-
-        private TMP_Text textComponent;
-
-        private void Start()
+        public GameManager.GameManagerVariables variables; //actualiza el texto a la variable de GameManager que le indiquemos.
+        private TMP_Text textcomponent;
+        private int auxScore = 0; // score auxiliar
+                                  // Start is called before the first frame update
+        void Start()
         {
-            textComponent = GetComponent<TMP_Text>();
+            textcomponent = gameObject.GetComponent<TMP_Text>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            switch (variable)
+            switch (variables)
             {
-                case GameManager.GameManagerVariables.TIME:
-                    textComponent.text = "Time: " + GameManager.instance.GetTime(); //lO NARANJA SE LLAMA CONNATENACION.
-                    break;
-                case GameManager.GameManagerVariables.POINTS:
-                    textComponent.text = "Points: " + GameManager.instance.GetPoints();
+                case GameManager.GameManagerVariables.Score:
+                    int currentScore = GameManager.instance.GetScore(); // llama al score actual del gameManager
+                    if (auxScore != currentScore)
+                    {
+                        StartCoroutine(FadeOut());
+                        auxScore = currentScore;
+                    }
                     break;
                 default:
                     break;
             }
         }
+
+        IEnumerator FadeOut()
+        {
+            Color color = textcomponent.color; // guarda el color del texto
+            for (float alpha = 1.0f; alpha >= 0; alpha -= 0.01f) // en cada vuelta del for el color del alfa disminuye
+            {
+                color.a = alpha;
+                textcomponent.color = color;
+                yield return null;
+            }
+            StartCoroutine(FadeIn());
+        }
+
+        IEnumerator FadeIn()
+        {
+            textcomponent.text = "Score " + GameManager.instance.GetScore(); // la puntiacion se actualiza al comenzar el fade in
+            Color color = textcomponent.color;
+            for (float alpha = 0.0f; alpha <= 1; alpha += 0.01f)
+            {
+                color.a = alpha;
+                textcomponent.color = color;
+                yield return null;
+            }
+        }
     }
+}
+
