@@ -33,11 +33,11 @@ public class saveLoadTXT : MonoBehaviour
 
                     streamWriter.WriteLine(date.ToString());       
                 }
-                streamWriter.WriteLine(DateTime.Now.ToString());
+                streamWriter.WriteLine(DateTime.Now.ToString("HH,mm,ss"));
             }
             else
             {
-                streamWriter.WriteLine(DateTime.Now.ToString());
+                streamWriter.WriteLine(DateTime.Now.ToString("HH,mm,ss"));
             }
             streamWriter.Close();//Importante cerrarlo si los cambios con permiso de escritura no se guarda.//SIEMPRE HACER EL CLOSE
         }
@@ -51,7 +51,7 @@ public class saveLoadTXT : MonoBehaviour
                 {
                     StreamReader streamReader = new StreamReader(filename);//el stream reader es para guardar
 
-                    float x = float.Parse(streamReader.ReadLine());   //parsear algo significa pasar de un sritng a otro tipo de dato diferente(char,bool,etc...)
+                    float x = float.Parse(streamReader.ReadLine());   //parsear algo significa pasar de un sritng a otro tipo de dato diferente(char,bool,etc...)//LA X NO VA NO SE SABE PQ
                     float y = float.Parse(streamReader.ReadLine());
                     float z = float.Parse(streamReader.ReadLine());
                     int Score = int.Parse(streamReader.ReadLine());

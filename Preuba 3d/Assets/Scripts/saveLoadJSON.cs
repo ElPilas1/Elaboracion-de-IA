@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +9,7 @@ struct PlayerData
 {
     public Vector3 position;//un objeto que es capaz de covnertirse en un archivo y ademas el contrario tambien se denomina objeto seriarizable
     public int score;
+    public List<DateTime> dates;
 }
 public class saveLoadJSON : MonoBehaviour
 {
@@ -64,6 +66,7 @@ public class saveLoadJSON : MonoBehaviour
 
                 transform.position = data.position;
                 GameManager.instance.SetScore(data.score);
+
             }
 
             catch (System.Exception e)
