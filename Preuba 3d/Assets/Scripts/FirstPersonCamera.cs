@@ -22,12 +22,12 @@ public class FirstPersonCamera : MonoBehaviour
         mouseYRotation -= mouseY;
         mouseYRotation = Mathf.Clamp(mouseYRotation, -90, 90);
 
-        transform.localEulerAngles=Vector3.right* mouseYRotation;
+        transform.localEulerAngles = Vector3.right * mouseYRotation;
 
 
 
 
-        playerTransform.Rotate(Vector3.up*mouseX);
+        playerTransform.Rotate(Vector3.up * mouseX);
 
     }
 }

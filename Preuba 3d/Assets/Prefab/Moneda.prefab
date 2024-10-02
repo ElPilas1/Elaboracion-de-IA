@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4259102573130913013}
   - component: {fileID: 196835393350020982}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Moneda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,3 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87aeeceefdc588e4fa25cf88b1217bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Score: 5

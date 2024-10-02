@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-    [System.Serializable]
+[System.Serializable]
 struct PlayerData
 {
     public Vector3 position;//un objeto que es capaz de covnertirse en un archivo y ademas el contrario tambien se denomina objeto seriarizable
@@ -26,7 +26,7 @@ public class saveLoadJSON : MonoBehaviour
             Save();
         }
 
-       else if (Input.GetKeyDown(KeyCode.L))
+        else if (Input.GetKeyDown(KeyCode.L))
         {
             Load();
         }
@@ -38,42 +38,42 @@ public class saveLoadJSON : MonoBehaviour
     private void Save()
     {
         StreamWriter streamWriter = new StreamWriter(filename);
-    
+
         PlayerData playerData = new PlayerData();
-        playerData.position=transform.position;
+        playerData.position = transform.position;
         playerData.score = GameManager.instance.GetScore();
-        string json=JsonUtility.ToJson(playerData);
+        string json = JsonUtility.ToJson(playerData);
         streamWriter.WriteLine(json);
 
-      streamWriter.Close();
+        streamWriter.Close();
     }
-     
+
     private void Load()
     {
         GetComponent<CharacterController>().enabled = false;
 
         if (File.Exists(filename))
         {
-            try 
-            { 
-            StreamReader streamReader= new StreamReader(filename);
+            try
+            {
+                StreamReader streamReader = new StreamReader(filename);
 
-            PlayerData data = JsonUtility.FromJson<PlayerData>(streamReader.ReadToEnd());
-            
-            streamReader.Close();
-            
-            transform.position = data.position;
-            GameManager.instance.SetScore(data.score);
+                PlayerData data = JsonUtility.FromJson<PlayerData>(streamReader.ReadToEnd());
+
+                streamReader.Close();
+
+                transform.position = data.position;
+                GameManager.instance.SetScore(data.score);
             }
 
-            catch(System.Exception e)
+            catch (System.Exception e)
             {
                 Debug.Log(e.Message);
             }
-           
-           }
-        
-        
+
+        }
+
+
         GetComponent<CharacterController>().enabled = true;
     }
 

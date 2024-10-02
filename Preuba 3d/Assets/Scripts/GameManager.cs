@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-   
+
     public static GameManager instance;
-    public enum GameManagerVariables { Score };
+    public enum GameManagerVariables { SCORE };
 
     private int score;
     private void Awake()

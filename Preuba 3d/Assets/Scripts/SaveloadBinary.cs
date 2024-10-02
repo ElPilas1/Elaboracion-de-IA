@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class SaveloadBinary : MonoBehaviour
 {
-    public string filename = "test.pdf";
+    public string filename = "test.Baratto";
     // Start is called before the first frame update
     void Start()
     {
-        filename=Application.persistentDataPath + "//" + filename;
+        filename = Application.persistentDataPath + "//" + filename;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Save();
         }
@@ -28,7 +28,7 @@ public class SaveloadBinary : MonoBehaviour
     void Save()
     {
 
-        BinaryWriter binaryWriter= new BinaryWriter(new FileStream(filename,FileMode.Create));
+        BinaryWriter binaryWriter = new BinaryWriter(new FileStream(filename, FileMode.Create));
         binaryWriter.Write(transform.position.x);
         binaryWriter.Write(transform.position.y);
         binaryWriter.Write(transform.position.z);
@@ -39,9 +39,9 @@ public class SaveloadBinary : MonoBehaviour
     {
         if (File.Exists(filename))
         {
-          return;
+            return;
         }
-        BinaryReader binaryReader= new BinaryReader(new FileStream(filename,FileMode.Open));//forma de hacerlo mas profesional con el return
+        BinaryReader binaryReader = new BinaryReader(new FileStream(filename, FileMode.Open));//forma de hacerlo mas profesional con el return
         float x = binaryReader.ReadSingle();
         float y = binaryReader.ReadSingle();
         float z = binaryReader.ReadSingle();
