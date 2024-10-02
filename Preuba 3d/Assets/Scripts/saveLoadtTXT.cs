@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class saveLoadTXT : MonoBehaviour
 {
     public string filename = "test.txt";
+    List<string> dates = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,19 @@ public class saveLoadTXT : MonoBehaviour
             streamWriter.WriteLine(transform.position.y);
             streamWriter.WriteLine(transform.position.z);
             streamWriter.WriteLine(GameManager.instance.GetScore());
+            if (dates != null)
+            {
+                foreach (string date in dates)
+                {
+
+                    streamWriter.WriteLine(date.ToString());       
+                }
+                streamWriter.WriteLine(DateTime.Now.ToString());
+            }
+            else
+            {
+                streamWriter.WriteLine(DateTime.Now.ToString());
+            }
             streamWriter.Close();//Importante cerrarlo si los cambios con permiso de escritura no se guarda.//SIEMPRE HACER EL CLOSE
         }
         else if (Input.GetKeyDown(KeyCode.L))
@@ -40,6 +55,7 @@ public class saveLoadTXT : MonoBehaviour
                     float y = float.Parse(streamReader.ReadLine());
                     float z = float.Parse(streamReader.ReadLine());
                     int Score = int.Parse(streamReader.ReadLine());
+                    dates.Add(streamReader.ReadLine());
                     streamReader.Close();
 
                     transform.position = new Vector3(x, y, z);//establecemos la posicion del gameobject
