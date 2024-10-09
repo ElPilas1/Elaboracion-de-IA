@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     public enum GameManagerVariables { SCORE };
+    public List<string> hours;
 
     private int score;
     private void Awake()
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
         if (!instance)
         {
             instance = this;
+            hours = new List<string>();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -33,6 +35,10 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public List<string> GetHours()
+    {
+        return hours;
+    }
     public int GetScore()
     {
         return score;

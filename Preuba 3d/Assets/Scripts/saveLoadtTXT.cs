@@ -8,6 +8,7 @@ public class saveLoadTXT : MonoBehaviour
 {
     public string filename = "test.txt";
     List<string> dates = new List<string>();
+    public List<string> hours;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,8 +55,12 @@ public class saveLoadTXT : MonoBehaviour
                     float x = float.Parse(streamReader.ReadLine());   //parsear algo significa pasar de un sritng a otro tipo de dato diferente(char,bool,etc...)//LA X NO VA NO SE SABE PQ
                     float y = float.Parse(streamReader.ReadLine());
                     float z = float.Parse(streamReader.ReadLine());
-                    int Score = int.Parse(streamReader.ReadLine());
+                    GameManager.instance.SetScore(int.Parse(streamReader.ReadLine()));
                     dates.Add(streamReader.ReadLine());
+                    while (!streamReader.EndOfStream)
+                    {
+                        hours.Add(DateTime.Now.ToString("HH,mm,ss"));
+                    }
                     streamReader.Close();
 
                     transform.position = new Vector3(x, y, z);//establecemos la posicion del gameobject
