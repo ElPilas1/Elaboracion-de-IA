@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776f23d24d37bcb42a226d985ef360de, type: 3}
   m_Name: ChaseState_enemy1
   m_EditorClassIdentifier: 
-  stateParameters: []
+  stateParameters:
+  - actionValue: 0
+    action: {fileID: 11400000, guid: cb45f211fd1f21c4caa5f01143841188, type: 2}
+    NextState: {fileID: 11400000, guid: 18a78c0996e83b646b1b6b06fc3046e2, type: 2}
