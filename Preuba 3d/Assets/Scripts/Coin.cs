@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerMovementCC>())
         {
-            GameManager.instance.SetScore(GameManager.instance.GetScore()+ Score);
+            GameManager.instance.SetScore(GameManager.instance.GetScore() + Score);
             Destroy(gameObject);
 
         }

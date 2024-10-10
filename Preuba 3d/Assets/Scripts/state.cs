@@ -21,7 +21,7 @@ public struct StateParameters
 public abstract class state : ScriptableObject
 {
     public StateParameters[] stateParameters;
-    private state ChechkActions(GameObject owner)
+    protected state ChechkActions(GameObject owner)
     {
         for (int i = 0; i < stateParameters.Length; i++)
         {
@@ -31,7 +31,8 @@ public abstract class state : ScriptableObject
             }
 
         }
-        return null;
+        return null;//NO SE CUMPLE CAMBIAMOS DE ESTADO
+
 
         //devolvera true si alguna de sus acciones se cumple,o false si es al contrario
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(fileName ="ChaseState(S)",menuName="ScriptableObject/States/ChaseState")]
+
 public  abstract class Action : ScriptableObject
 {
 

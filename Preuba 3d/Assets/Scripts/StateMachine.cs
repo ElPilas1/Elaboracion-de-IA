@@ -9,21 +9,23 @@ public class StateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentState = initialState;   
+        currentState = initialState;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-   //hay que ejecutar el estado y si en algun momento el estado cambia tenemos que cambiar el current state,relacionar el nextstate con el run
+
+
+        state nextState = currentState.Run(gameObject);
+        if (nextState)//si nextstate no es nulo cambiamos la variable de nextstate o siguiente estado
+        {
+
+            currentState = nextState;
+
+
+        }
+
+        //hay que ejecutar el estado y si en algun momento el estado cambia tenemos que cambiar el current state,relacionar el nextstate con el run
     }
 }
