@@ -37,6 +37,13 @@ public abstract class state : ScriptableObject
         //devolvera true si alguna de sus acciones se cumple,o false si es al contrario
     }
     public abstract state Run(GameObject owner);//el run de la clase state no hace nada
+    public void DrawAllActionsGizmos(GameObject owner)
+    {
+        foreach (StateParameters parameter in stateParameters)
+        {
+            parameter.action.DrawGizmo(owner);
+        }
+    }
 
 
 

@@ -24,4 +24,12 @@ public class HearAction : Action
         return false;
 
     }
+    public override void DrawGizmo(GameObject owner)
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(owner.transform.position, radius);
+    }
+
+
+
 }

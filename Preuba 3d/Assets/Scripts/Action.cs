@@ -5,10 +5,10 @@ using UnityEngine;
 
 
 
-public  abstract class Action : ScriptableObject
+public abstract class Action : ScriptableObject
 {
 
-  
+
     // public Action[] actions;
 
 
@@ -18,6 +18,8 @@ public  abstract class Action : ScriptableObject
     // }
 
     public abstract bool Check(GameObject owner);//el check devuelve un bool
+
+    public abstract void DrawGizmo(GameObject owner);
 
 
 

@@ -39,7 +39,7 @@ public class Updatetext : MonoBehaviour
         {
             color.a = alpha;
             Textcomponent.color = color;
-            yield return  null;
+            yield return null;
         }
         StartCoroutine(FadeIn());
     }

@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovementCC : MonoBehaviour
 {
-    public float speed, mouseX, mouseSens, gravityScale, jumpforce;
+    public float speed, runningSpeed, mouseX, mouseSens, gravityScale, jumpforce;
     //private bool jumpPressed;
-    private float yVelocity;
-
+    private Vector3 auxmovementVector;
+    private float yVelocity = 0, currentSpeed;
     private CharacterController characterController;
     // Start is called before the first frame update
     void Start()
@@ -26,24 +26,32 @@ public class PlayerMovementCC : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         float mouseX = Input.GetAxis("Mouse X");
-        bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
-
+        bool jumpPressed = Input.GetKey(KeyCode.Space);
+        bool shiftPressed = Input.GetKey(KeyCode.LeftShift);
         Jump(jumpPressed);
-        Movement(x, z);
+        Movement(x, z, shiftPressed);
+        Rotation(mouseX);
         //Rotation(mouseX);
 
 
 
     }
+
     void Rotation(float mouseX)
     {
         Vector3 rotation = new Vector3(0, mouseX, 0) * mouseSens;
         transform.Rotate(rotation);//sensibilidad del personaje 
 
     }
-    void Movement(float x, float z)
+    void Movement(float x, float z, bool shiftPressed)
     {
-        Vector3 movementVector = transform.forward * speed * z + transform.right * speed * x;
+        if (shiftPressed)
+            currentSpeed = runningSpeed;
+        else
+            currentSpeed = speed;
+
+        Vector3 movementVector = transform.forward * currentSpeed * z + transform.right * currentSpeed * x;
+        auxmovementVector = movementVector;
         if (!characterController.isGrounded)
             yVelocity -= gravityScale;
 
@@ -51,6 +59,10 @@ public class PlayerMovementCC : MonoBehaviour
 
         movementVector *= Time.deltaTime;//se tiene que mover igual en el pc de mi abuela que en la nasa
         characterController.Move(movementVector);
+    }
+    public Vector3 GetMovementVector()
+    {
+        return auxmovementVector;
     }
     void Jump(bool jumpPressed)
     {
