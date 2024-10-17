@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 [System.Serializable]
+public struct ActionParameters//este struct sirve para relacionar un booleano con una acción
+{
+    [Tooltip("Action that is gonna be executed")]
+    public Action action;
+    [Tooltip("Indicates if the action's check must be true or false")]
+    public bool actionValue;
+}
+
+[System.Serializable]
 
 
 public struct StateParameters
 {
-    [Tooltip("Indicates if the action's check must be true or false")]
-    public bool[] actionValue;
-    [Tooltip("Action that is gonna be executed")]
-    public Action[] action;
+    [Tooltip("ActionParameters array")]
+    public ActionParameters[] actionParameters;
     [Tooltip("If the action's check equals actionValue,nextState is pushed")]
     public state NextState;
     [Tooltip("all the actions are checked")]
@@ -28,9 +35,11 @@ public abstract class state : ScriptableObject
         for (int i = 0; i < stateParameters.Length; i++)//RECORRE TODOS LOS PARAMETROS
         {
             bool allactions = true;//asumimos que todas las aciones e han cumplido
-            for (int j = 0; j < stateParameters[i].action.Length; j++)//AL HABER UN ARRAY DENTRO DE OTRO RECORRE EL ARRAY DE LAS ACCIONES DE DEBE,PS RECPRRER
+            for (int j = 0; j < stateParameters[i].actionParameters.Length; j++)//AL HABER UN ARRAY DENTRO DE OTRO RECORRE EL ARRAY DE LAS ACCIONES DE DEBE,PS RECPRRER
             {
-                if (stateParameters[i].action[j].Check(owner) == stateParameters[i].actionValue[j])//si entramos en este if significa que la accion se ha cumplido
+                ActionParameters actionParameters = stateParameters[i].actionParameters[j];
+
+                if (actionParameters.action.Check(owner) == actionParameters.actionValue)//si entramos en este if significa que la accion se ha cumplido
                 {
                     if (!stateParameters[i].and)//si solo se tiene que cumplir una accisón
                     {
@@ -61,9 +70,9 @@ public abstract class state : ScriptableObject
     {
         foreach (StateParameters parameter in stateParameters)
         {
-            foreach (Action action in parameter.action)
+            foreach (ActionParameters aP in parameter.actionParameters)
             {
-                action.DrawGizmo(owner);
+                aP.action.DrawGizmo(owner);
             }
         }
     }

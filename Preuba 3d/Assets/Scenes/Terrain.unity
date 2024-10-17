@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81908998}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14845853, y: 0.000000008507855, z: -0.0000000012772169, w: 0.98891866}
+  m_LocalRotation: {x: 0.22575125, y: 1e-45, z: -0, w: 0.974185}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 3
-  m_FollowOffset: {x: 0, y: 6.4, z: -18.42}
+  m_FollowOffset: {x: 0, y: 7.5, z: -14}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -501,8 +501,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243614001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16642189, y: 0.000000016966434, z: -0.0000000028635185, w: 0.98605466}
-  m_LocalPosition: {x: 522.54, y: 20.6, z: 465.61}
+  m_LocalRotation: {x: 0.20804101, y: -0.000000029150259, z: 0.0000000062001067, w: 0.97812015}
+  m_LocalPosition: {x: 522.54, y: 21.7, z: 470.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 3
-  m_FollowOffset: {x: 0, y: 6.4, z: -18.42}
+  m_FollowOffset: {x: 0, y: 7.5, z: -14}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -786,12 +786,12 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 1.64
-    m_SpeedMode: 0
-    m_MaxSpeed: 8.75
+    Value: 0
+    m_SpeedMode: 1
+    m_MaxSpeed: 2
     m_AccelTime: 0.2
     m_DecelTime: 0.1
-    m_InputAxisName: Mouse Y
+    m_InputAxisName: Mouse ScrollWheel
     m_InputAxisValue: 0
     m_InvertInput: 0
     m_MinValue: 0
@@ -815,7 +815,7 @@ MonoBehaviour:
     m_MaxSpeed: 300
     m_AccelTime: 0.1
     m_DecelTime: 0.1
-    m_InputAxisName: Mouse X
+    m_InputAxisName: 
     m_InputAxisValue: 0
     m_InvertInput: 1
     m_MinValue: -180
@@ -840,11 +840,11 @@ MonoBehaviour:
   m_BindingMode: 3
   m_SplineCurvature: 0.848
   m_Orbits:
-  - m_Height: 6.4
+  - m_Height: 35.53
     m_Radius: 18.42
-  - m_Height: 18.83
+  - m_Height: 17.1
     m_Radius: 14
-  - m_Height: 10
+  - m_Height: 7.5
     m_Radius: 14
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
@@ -860,7 +860,7 @@ Transform:
   m_GameObject: {fileID: 653307136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 522.54, y: 20.6, z: 465.61}
+  m_LocalPosition: {x: 522.54, y: 21.7, z: 470.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 3
-  m_FollowOffset: {x: 0, y: 6.4, z: -18.42}
+  m_FollowOffset: {x: 0, y: 7.5, z: -14}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1141,16 +1141,16 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_UseGeometry: 0
   m_DefaultArea: 0
-  m_GenerateLinks: 0
+  m_GenerateLinks: 1
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.25
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 9f3cac8da8162e54f92da1d0b354e6e5, type: 2}
-  m_BuildHeightMesh: 0
+  m_BuildHeightMesh: 1
 --- !u!1 &1313285656
 GameObject:
   m_ObjectHideFlags: 3
@@ -1229,7 +1229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313285656}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13049369, y: 1e-45, z: -0, w: 0.9914492}
+  m_LocalRotation: {x: 0.20804098, y: -0.000000029150254, z: 0.000000006200105, w: 0.97812015}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1380,13 +1380,13 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 86.22
-  m_Acceleration: 8
+  m_Acceleration: 1
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
-  m_AutoRepath: 1
+  m_AutoRepath: 0
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
@@ -1490,6 +1490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 11400000, guid: 18a78c0996e83b646b1b6b06fc3046e2, type: 2}
+  currentState: {fileID: 0}
 --- !u!114 &1561555500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,7 +1783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114798148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1664219, y: 0.000000008483218, z: -0.0000000014317595, w: 0.98605466}
+  m_LocalRotation: {x: 0.24343382, y: -0.000000008344385, z: 0.000000002094307, w: 0.96991754}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
