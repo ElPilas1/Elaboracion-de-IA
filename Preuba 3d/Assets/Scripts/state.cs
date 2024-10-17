@@ -27,9 +27,10 @@ public abstract class state : ScriptableObject
     {
         for (int i = 0; i < stateParameters.Length; i++)//RECORRE TODOS LOS PARAMETROS
         {
+            bool allactions = true;//asumimos que todas las aciones e han cumplido
             for (int j = 0; j < stateParameters[i].action.Length; j++)//AL HABER UN ARRAY DENTRO DE OTRO RECORRE EL ARRAY DE LAS ACCIONES DE DEBE,PS RECPRRER
             {
-                if (stateParameters[i].action[j].Check(owner) == stateParameters[i].actionValue[j])
+                if (stateParameters[i].action[j].Check(owner) == stateParameters[i].actionValue[j])//si entramos en este if significa que la accion se ha cumplido
                 {
                     if (!stateParameters[i].and)//si solo se tiene que cumplir una accisón
                     {
@@ -37,23 +38,21 @@ public abstract class state : ScriptableObject
                         return stateParameters[i].NextState;
                     }
                 }
-                //else if (stateParameters[i].and)
-                //{
-                //    //estamos seguros de que esta accion s eha cumplido
-                //    continue;
-                //}
+                else if (stateParameters[i].and)
+                {
+                    allactions = false;
+                    break;//se sale del bucle,porque una accion no se ha cumplido y estamos en and
+                }
 
             }
             //si llegamos hasta aqui,signfica que el disenador ha marcado que todas las acciones 
             //tienen que cumplirse,y ademas se han cumplido
-            if (stateParameters[i].and)
+            if (stateParameters[i].and && allactions)//tenemos que comprobar si todas las acciones se han cumplido
             {
                 return stateParameters[i].NextState;
             }
         }
         return null;//NO SE CUMPLE CAMBIAMOS DE ESTADO
-
-
 
         //devolvera true si alguna de sus acciones se cumple,o false si es al contrario
     }
@@ -62,7 +61,10 @@ public abstract class state : ScriptableObject
     {
         foreach (StateParameters parameter in stateParameters)
         {
-            parameter.action.DrawGizmo(owner);
+            foreach (Action action in parameter.action)
+            {
+                action.DrawGizmo(owner);
+            }
         }
     }
 
