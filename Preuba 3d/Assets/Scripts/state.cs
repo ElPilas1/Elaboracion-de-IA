@@ -8,11 +8,13 @@ using UnityEngine;
 public struct StateParameters
 {
     [Tooltip("Indicates if the action's check must be true or false")]
-    public bool actionValue;
+    public bool[] actionValue;
     [Tooltip("Action that is gonna be executed")]
-    public Action action;
+    public Action[] action;
     [Tooltip("If the action's check equals actionValue,nextState is pushed")]
     public state NextState;
+    [Tooltip("all the actions are checked")]
+    public bool and;
 
 }
 //Array de aciciones seria public Action[] actions;
@@ -23,15 +25,34 @@ public abstract class state : ScriptableObject
     public StateParameters[] stateParameters;
     protected state ChechkActions(GameObject owner)
     {
-        for (int i = 0; i < stateParameters.Length; i++)
+        for (int i = 0; i < stateParameters.Length; i++)//RECORRE TODOS LOS PARAMETROS
         {
-            if (stateParameters[i].actionValue == stateParameters[i].action.Check(owner))//el recorrer ese array chequeamos si se cumple la accion devolvemos el true si no se cumple ninguna de las acciones es false
+            for (int j = 0; j < stateParameters[i].action.Length; j++)//AL HABER UN ARRAY DENTRO DE OTRO RECORRE EL ARRAY DE LAS ACCIONES DE DEBE,PS RECPRRER
             {
-                return (stateParameters[i].NextState);
-            }
+                if (stateParameters[i].action[j].Check(owner) == stateParameters[i].actionValue[j])
+                {
+                    if (!stateParameters[i].and)//si solo se tiene que cumplir una accisón
+                    {
+                        //devovlemos el siguiente estado
+                        return stateParameters[i].NextState;
+                    }
+                }
+                //else if (stateParameters[i].and)
+                //{
+                //    //estamos seguros de que esta accion s eha cumplido
+                //    continue;
+                //}
 
+            }
+            //si llegamos hasta aqui,signfica que el disenador ha marcado que todas las acciones 
+            //tienen que cumplirse,y ademas se han cumplido
+            if (stateParameters[i].and)
+            {
+                return stateParameters[i].NextState;
+            }
         }
         return null;//NO SE CUMPLE CAMBIAMOS DE ESTADO
+
 
 
         //devolvera true si alguna de sus acciones se cumple,o false si es al contrario
