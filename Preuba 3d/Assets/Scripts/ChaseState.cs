@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ChaseState : state
 {
     // Start is called before the first frame update
+    public string blendParameter;
 
 
     // Update is called once per frame
@@ -17,9 +18,12 @@ public class ChaseState : state
 
 
         NavMeshAgent navMeshAgent = owner.GetComponent<NavMeshAgent>();//el owner es el que tiene el objecto
+        Animator animator = owner.GetComponent<Animator>();
+
 
         GameObject target = owner.GetComponent<Targetreference>().target;//para que persiga el objetivo
         navMeshAgent.SetDestination(target.transform.position);//hace que le persiga,es su objectivo y el coso que le pngamos es su destino y esquivara los obstaculos
+        animator.SetFloat(blendParameter,navMeshAgent.velocity.magnitude/navMeshAgent.speed);
 
 
 
