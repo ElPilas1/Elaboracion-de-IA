@@ -7,7 +7,7 @@ public class PlayerMovementCC : MonoBehaviour
     [Header("Físicas")]
     public float WalkingSpeed, runningSpeed, mouseX, mouseSens, gravityScale, acceleration, jumpforce;
     //private bool jumpPressed;
-    private Vector3 auxmovementVector;
+   
     private float yVelocity = 0, currentSpeed;
     private CharacterController characterController;
     // Start is called before the first frame update
@@ -33,8 +33,17 @@ public class PlayerMovementCC : MonoBehaviour
         Movement(x, z, shiftPressed);
         Rotation(mouseX);
         //Rotation(mouseX);
+    }
 
-        if (shiftPressed&& x != 0 || z != 0)
+    void Rotation(float mouseX)
+    {
+        Vector3 rotation = new Vector3(0, mouseX, 0) * mouseSens;
+        transform.Rotate(rotation);//sensibilidad del personaje 
+
+    }
+    void Movement(float x, float z, bool shiftPressed)
+    {
+        if (shiftPressed && (x != 0 || z != 0))
         {
             currentSpeed = Mathf.Lerp(currentSpeed, runningSpeed, acceleration * Time.deltaTime);
         }
@@ -48,25 +57,8 @@ public class PlayerMovementCC : MonoBehaviour
             currentSpeed = Mathf.Lerp(currentSpeed, 0, acceleration * Time.deltaTime);
         }
 
-
-
-    }
-
-    void Rotation(float mouseX)
-    {
-        Vector3 rotation = new Vector3(0, mouseX, 0) * mouseSens;
-        transform.Rotate(rotation);//sensibilidad del personaje 
-
-    }
-    void Movement(float x, float z, bool shiftPressed)
-    {
-        if (shiftPressed)
-            currentSpeed = runningSpeed;
-        else
-            currentSpeed = WalkingSpeed;
-
         Vector3 movementVector = transform.forward * currentSpeed * z + transform.right * currentSpeed * x;
-        auxmovementVector = movementVector;
+       
         if (!characterController.isGrounded)
             yVelocity -= gravityScale;
 
@@ -75,9 +67,10 @@ public class PlayerMovementCC : MonoBehaviour
         movementVector *= Time.deltaTime;//se tiene que mover igual en el pc de mi abuela que en la nasa
         characterController.Move(movementVector);
     }
-    public Vector3 GetMovementVector()
+
+    public float GetCurrentSpped()
     {
-        return auxmovementVector;
+        return currentSpeed;
     }
     void Jump(bool jumpPressed)
     {

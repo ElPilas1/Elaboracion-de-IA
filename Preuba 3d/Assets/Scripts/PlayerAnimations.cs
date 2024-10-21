@@ -20,7 +20,7 @@ public class PlayerAnimations : MonoBehaviour
     {
 
 
-        animator.SetFloat("Speed", playerMovementCC.GetMovementVector().magnitude / playerMovementCC.runningSpeed);
+        animator.SetFloat("Speed", playerMovementCC.GetCurrentSpped() / playerMovementCC.runningSpeed);
     }
 
 
