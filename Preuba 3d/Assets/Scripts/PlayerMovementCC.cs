@@ -4,7 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovementCC : MonoBehaviour
 {
-    public float speed, runningSpeed, mouseX, mouseSens, gravityScale, jumpforce;
+    [Header("Físicas")]
+    public float WalkingSpeed, runningSpeed, mouseX, mouseSens, gravityScale, acceleration, jumpforce;
     //private bool jumpPressed;
     private Vector3 auxmovementVector;
     private float yVelocity = 0, currentSpeed;
@@ -33,6 +34,20 @@ public class PlayerMovementCC : MonoBehaviour
         Rotation(mouseX);
         //Rotation(mouseX);
 
+        if (shiftPressed&& x != 0 || z != 0)
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, runningSpeed, acceleration * Time.deltaTime);
+        }
+        else if (x != 0 || z != 0)
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, WalkingSpeed, acceleration * Time.deltaTime);
+
+        }
+        else
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, 0, acceleration * Time.deltaTime);
+        }
+
 
 
     }
@@ -48,7 +63,7 @@ public class PlayerMovementCC : MonoBehaviour
         if (shiftPressed)
             currentSpeed = runningSpeed;
         else
-            currentSpeed = speed;
+            currentSpeed = WalkingSpeed;
 
         Vector3 movementVector = transform.forward * currentSpeed * z + transform.right * currentSpeed * x;
         auxmovementVector = movementVector;

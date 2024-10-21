@@ -1282,12 +1282,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213497ca45d43c74784ae17ca35eee8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  WalkingSpeed: 20
   runningSpeed: 50
   mouseX: 0.05
-  mouseSens: 0.18
+  mouseSens: 2.15
   gravityScale: 0.1
-  jumpforce: 100
+  acceleration: 5
+  jumpforce: 22.3
 --- !u!143 &1328394318
 CharacterController:
   m_ObjectHideFlags: 0

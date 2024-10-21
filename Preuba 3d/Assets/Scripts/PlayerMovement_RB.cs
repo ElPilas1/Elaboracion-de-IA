@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed, gravityScale, mouseSens, jumpforce, sphereRadius;//el mousesens es para que el diseñador decida a que velocidad rota el personaje
+    public float speed, gravityScale, mouseSens, jumpforce,acceleration,sphereRadius;//el mousesens es para que el diseñador decida a que velocidad rota el personaje
     Rigidbody rb;
     public string groundname;
     private float x, z, mouseX;//input para las cosas 
