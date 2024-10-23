@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateParameters:
   - actionParameters:
-    - action: {fileID: 11400000, guid: ce4d68c2c2e704344b5438b48e7c91d4, type: 2}
-      actionValue: 1
     - action: {fileID: 11400000, guid: cb45f211fd1f21c4caa5f01143841188, type: 2}
       actionValue: 1
-    NextState: {fileID: 11400000, guid: 4d1f3406cc2ea514da7474d3bad97d62, type: 2}
+    NextState: {fileID: 11400000, guid: 9760ea1d666499c4a9c716e83291b585, type: 2}
     and: 1
   blendParameter: Speed
   guardPoint: {x: 516.3018, y: 11.35, z: 433.5654}

@@ -501,8 +501,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243614001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20804101, y: -0.000000029150259, z: 0.0000000062001067, w: 0.97812015}
-  m_LocalPosition: {x: 522.54, y: 21.7, z: 470.03}
+  m_LocalRotation: {x: 0.208041, y: 0.000000014575128, z: -0.0000000031000527, w: 0.97812015}
+  m_LocalPosition: {x: 522.54, y: 21.7, z: 433.2382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -665,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 35ea5644b439028499c7a939984d2d1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 483.3918
+      value: 446.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 35ea5644b439028499c7a939984d2d1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -860,7 +860,7 @@ Transform:
   m_GameObject: {fileID: 653307136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 522.54, y: 21.7, z: 470.03}
+  m_LocalPosition: {x: 522.54, y: 21.7, z: 433.2382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1229,7 +1229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313285656}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20804098, y: -0.000000029150254, z: 0.000000006200105, w: 0.97812015}
+  m_LocalRotation: {x: 0.20804097, y: 1.6208908e-15, z: -5.9004183e-16, w: 0.97812015}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfffb71a7a1666a40a120a38b1b26567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: {fileID: 11400000, guid: 4d1f3406cc2ea514da7474d3bad97d62, type: 2}
+  initialState: {fileID: 11400000, guid: 18a78c0996e83b646b1b6b06fc3046e2, type: 2}
   currentState: {fileID: 0}
 --- !u!195 &1435604484
 NavMeshAgent:
@@ -1783,7 +1783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114798148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24343382, y: -0.000000008344385, z: 0.000000002094307, w: 0.96991754}
+  m_LocalRotation: {x: 0.24343382, y: 0.0000000083443865, z: -0.0000000020943074, w: 0.96991754}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
