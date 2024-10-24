@@ -11,7 +11,7 @@ public class FearState : state
    
     public override state Run(GameObject owner)
     {
-        state NextState = ChechkActions(owner);
+        state NextState = CheckActions(owner);
         NavMeshAgent navMeshAgent = owner.GetComponent<NavMeshAgent>();
         GameObject target = owner.GetComponent<Targetreference>().target;
 

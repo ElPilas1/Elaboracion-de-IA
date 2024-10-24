@@ -13,7 +13,7 @@ public class GuardState : state
 
     public override state Run(GameObject owner)
     {
-        state NextState = ChechkActions(owner);
+        state NextState = CheckActions(owner);
 
 
         NavMeshAgent navMeshAgent = owner.GetComponent<NavMeshAgent>();

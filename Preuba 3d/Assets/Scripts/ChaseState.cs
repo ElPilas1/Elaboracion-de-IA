@@ -13,7 +13,7 @@ public class ChaseState : state
     // Update is called once per frame
     public override state Run(GameObject owner)
     {
-        state netxState = ChechkActions(owner);//ejecutamos el chec actions
+        state netxState = CheckActions(owner);//ejecutamos el chec actions
 
 
 

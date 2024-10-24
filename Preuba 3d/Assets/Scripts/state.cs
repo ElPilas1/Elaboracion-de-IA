@@ -30,7 +30,7 @@ public struct StateParameters
 public abstract class state : ScriptableObject
 {
     public StateParameters[] stateParameters;
-    protected state ChechkActions(GameObject owner)
+    protected state CheckActions(GameObject owner)
     {
         for (int i = 0; i < stateParameters.Length; i++)//RECORRE TODOS LOS PARAMETROS
         {
