@@ -5,12 +5,12 @@ using UnityEngine;
 public class PassTimeAction : Action
 {
     private float currentTime;
-    public float time;
+    public float maxTime;
 
     public override bool Check(GameObject owner)
     {
         currentTime += Time.deltaTime;
-        if (currentTime > time)
+        if (currentTime > maxTime)
         {
             currentTime = 0;
             return true;

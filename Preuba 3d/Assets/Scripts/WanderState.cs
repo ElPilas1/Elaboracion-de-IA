@@ -12,6 +12,7 @@ public class WanderState : state
     {
         state nextState = CheckActions(owner);
         NavMeshAgent navMeshAgent = owner.GetComponent<NavMeshAgent>();
+        Animator animator = owner.GetComponent<Animator>();
         time += Time.deltaTime;
 
         if (time >= 5f)
