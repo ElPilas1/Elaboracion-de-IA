@@ -16,8 +16,8 @@ public class WanderState : state
 
         if (time >= 5f)
         {
-            x = Random.Range(0, 61);
-            z = Random.Range(50, 91);
+            x = Random.Range(0, 509);
+            z = Random.Range(50, 588);
             time = 0f;
         }
         navMeshAgent.SetDestination(new Vector3(x, 0, z));
