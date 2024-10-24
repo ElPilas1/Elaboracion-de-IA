@@ -16,7 +16,5 @@ MonoBehaviour:
   - actionParameters:
     - action: {fileID: 11400000, guid: cb45f211fd1f21c4caa5f01143841188, type: 2}
       actionValue: 1
-    - action: {fileID: 11400000, guid: cb45f211fd1f21c4caa5f01143841188, type: 2}
-      actionValue: 0
     NextState: {fileID: 11400000, guid: 4d1f3406cc2ea514da7474d3bad97d62, type: 2}
     and: 0
