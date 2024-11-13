@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(fileName = "PatrolState (S)", menuName = "ScriptableObject/states/PatrolState")]//IMPORTANTE
+[CreateAssetMenu(fileName = "PatrolState (S)", menuName = "ScriptableObject/States/PatrolState")]//IMPORTANTE
 public class PatrolState : state
 {
 
