@@ -5,56 +5,31 @@ using UnityEngine;
 
 public class Updatetext : MonoBehaviour
 {
-    public GameManager.GameManagerVariables variables; //actualiza el texto a la variable de GameManager que se indiquemos.
-    private TMP_Text Textcomponent;
-    private int auxScore = 0;  // score auxiliar
 
-    void Start()
+    private TMP_Text text;
+    public GameManager.GameManagerVariables variable;
+
+    private void Start()
     {
-        Textcomponent = gameObject.GetComponent<TMP_Text>();
+        text = GetComponent<TMP_Text>();
+        GameManager.instance.SetLifes(3);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        switch (variables)
+        switch (variable)
         {
-            case GameManager.GameManagerVariables.SCORE:
-                int currentScore = GameManager.instance.GetScore(); // llama al score actual del gameManager
-                if (auxScore != currentScore)
-                {
-                    StartCoroutine(FadeOut());
-                    auxScore = currentScore;
-                }
+            case GameManager.GameManagerVariables.TIME:
+                text.text = "Time: " + GameManager.instance.GetTime().ToString("#.##");
+                break;
+            case GameManager.GameManagerVariables.LIFE:
+                text.text = "Lifes: " + GameManager.instance.GetLifes();
                 break;
             default:
                 break;
         }
     }
 
-    IEnumerator FadeOut()
-    {
-        Color color = Textcomponent.color; // guarda el color del texto
-        for (float alpha = 1.0f; alpha >= 0; alpha -= 0.01f) // en cada vuelta del for el color del alfa disminuye
-        {
-            color.a = alpha;
-            Textcomponent.color = color;
-            yield return null;
-        }
-        StartCoroutine(FadeIn());
-    }
 
-    IEnumerator FadeIn()
-    {
-        Textcomponent.text = "Score " + GameManager.instance.GetScore(); // puntuacion se actualiza al comenzar el fade in
-        Color color = Textcomponent.color;
-        for (float alpha = 0.0f; alpha <= 1; alpha += 0.01f)
-        {
-            color.a = alpha;
-            Textcomponent.color = color;
-            yield return null;
-        }
-    }
 }
 
 
