@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("Me cerraste wey");
+        Debug.Log("Cerrar");
         Application.Quit();
     }
 
