@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public enum GameManagerVariables { SCORE };
     public List<string> hours;
+    private float time;
 
     private int score;
     private void Awake()
@@ -46,6 +48,17 @@ public class GameManager : MonoBehaviour
     public void SetScore(int value)
     {
         score = value;
+    }
+    public void LoadScene(string sceneName)
+    {
+        time = 0;
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("Me cerraste wey");
+        Application.Quit();
     }
 
 }
