@@ -28,6 +28,6 @@ using UnityEngine;
 
         private void FixedUpdate()
         {
-            rb.velocity = dir * speed * Time.deltaTime;
+            rb.velocity = dir * speed;
         }
     }

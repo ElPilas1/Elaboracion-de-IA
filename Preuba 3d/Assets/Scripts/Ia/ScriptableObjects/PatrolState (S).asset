@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateParameters:
   - actionParameters:
-    - action: {fileID: 11400000, guid: cb45f211fd1f21c4caa5f01143841188, type: 2}
+    - action: {fileID: 11400000, guid: 330986ced76353040939a656085ae523, type: 2}
       actionValue: 1
     NextState: {fileID: 11400000, guid: b9c5ee61c34e9904094394cee139e607, type: 2}
     and: 0
@@ -23,6 +23,6 @@ MonoBehaviour:
   - {x: 512, y: 0.34, z: 296}
   - {x: 753.1, y: 10.6, z: 512.1}
   - {x: 639.7, y: 4.4, z: 705.9}
-  currentTime: 0.5798747
+  currentTime: 0.6998746
   maxTime: 5
   blendParametrer: Speed
