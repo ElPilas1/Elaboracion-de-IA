@@ -23,6 +23,6 @@ MonoBehaviour:
   - {x: 512, y: 0.34, z: 296}
   - {x: 753.1, y: 10.6, z: 512.1}
   - {x: 639.7, y: 4.4, z: 705.9}
-  currentTime: 0.6998746
+  currentTime: 0
   maxTime: 5
   blendParametrer: Speed
